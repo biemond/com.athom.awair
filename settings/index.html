@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    </head>
+    <body>
+        <h1 data-i18n="settings.title">
+        </h1>
+        <p data-i18n="settings.subtitle">
+        </p>
+
+        <fieldset>
+            <legend>My Settings</legend>
+            <div class="field row">
+                <label for="api">apikey</label>
+                <input id="apikey" type="text" value="" />
+            </div>
+        </fieldset>
+
+        <button id="save" class="right">Save changes</button>
+
+        <script type="text/javascript">
+
+        function onHomeyReady( Homey ){
+
+            Homey.ready();
+
+            var apikeyElement = document.getElementById('apikey');
+            var saveElement = document.getElementById('save');
+
+            Homey.get('apikey', function( err, apikey ) {
+               if( err ) return Homey.alert( err );
+               apikeyElement.value = apikey;
+            });
+
+            saveElement.addEventListener('click', function(e) {
+                Homey.set('apikey', apikeyElement.value, function( err ){
+                    if( err ) return Homey.alert( err );
+                });
+            });
+        }
+        </script>
+
+    </body>
+</html>
