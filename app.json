@@ -157,7 +157,8 @@
 			"max": 3000,
 			"decimals": 0,
 			"insights": true,
-			"uiComponent": "sensor"
+			"uiComponent": "sensor",
+            "icon": "/assets/images/co2.svg"
 		},
 		"sensor_voc": {
 			"type": "number",
@@ -202,8 +203,7 @@
 			"max": 100,
 			"decimals": 0,
 			"insights": true,
-      "uiComponent": "sensor",
-      "icon": "/assets/images/score.svg"
+            "uiComponent": "sensor"
 		}
 	},
 	"flow": {
