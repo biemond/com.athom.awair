@@ -26,7 +26,7 @@ class MyAwairDevice extends Homey.Device {
             .catch(err => {
                 if (err.code == 404) {
                     this.log("The task has not been registered yet, registering task: " + cronName);
-                    Homey.ManagerCron.registerTask(cronName, "*/2 * * * *", settings)
+                    Homey.ManagerCron.registerTask(cronName, "*/5 * * * *", settings)
                         .then(task => {
                             task.on('run', () => this.pollAwairDevice(settings));
                         })
@@ -100,7 +100,7 @@ class MyAwairDevice extends Homey.Device {
             let device = this;
             var currentdate =new Date().timeNow();
 			this.log("refresh now " + currentdate);
-			console.log("Received data");
+			console.log("Received data " + JSON.stringify(data));
             if (data.data != null){
                 console.log("object "+ JSON.stringify(data.data[0]));
                 var strUpdateDate = data.data[0].timestamp;

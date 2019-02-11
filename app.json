@@ -1,213 +1,213 @@
 {
-  "id": "com.athom.awair",
-  "version": "0.0.1",
-  "compatibility": ">=1.5.0",
-  "sdk": 2,
-  "name": {
-    "en": "awair"
-  },
-  "description": {
-    "en": "awair monitors your air"
-  },
-  "category": [
-    "climate"
-  ],
-  "permissions": [],
-  "images": {
-    "large": "/assets/images/large.jpg",
-    "small": "/assets/images/small.jpg"
-  },
-  "author": {
-    "name": "Edwin Biemond",
-    "email": "biemond@gmail.com"
-  },
-  "capabilities": {
-    "latest_upload_date": {
-      "type": "string",
-      "title": {
-        "en": "Latest update date"
-      },
-      "getable": true,
-      "setable": false,
+	"id": "com.athom.awair",
+	"version": "0.0.2",
+	"compatibility": ">=1.5.0",
+	"sdk": 2,
+	"name": {
+		"en": "awair"
+	},
+	"description": {
+		"en": "awair monitors your air"
+	},
+	"category": [
+		"climate"
+	],
+	"permissions": [],
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
+	},
+	"author": {
+		"name": "Edwin Biemond",
+		"email": "biemond@gmail.com"
+	},
+	"capabilities": {
+		"latest_upload_date": {
+			"type": "string",
+			"title": {
+				"en": "Latest update date"
+			},
+			"getable": true,
+			"setable": false,
 			"icon": "/assets/images/clock.svg"
-    },            
-    "condition_temp": {
-      "type": "number",
-      "title": {
-        "en": "Current temperature condition"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "lvl"
-      },
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "insights": true,
-      "uiComponent": "slider"   
-    },
-    "condition_humid": {
-      "type": "number",
-      "title": {
-        "en": "Current humidity condition"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "lvl"
-      },
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "insights": true,
-      "uiComponent": "slider"   
-    },
-    "condition_co2": {
-      "type": "number",
-      "title": {
-        "en": "Current CO2 condition"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "lvl"
-      },
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "insights": true,
-      "uiComponent": "slider"   
-    },
-    "condition_voc": {
-      "type": "number",
-      "title": {
-        "en": "Current chemicals condition"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "lvl"
-      },
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "insights": true,
-      "uiComponent": "slider"   
-    },
-    "condition_pm25": {
-      "type": "number",
-      "title": {
-        "en": "Current PM2.5 condition"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "lvl"
-      },
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "insights": true,
-      "uiComponent": "slider"   
-    },
-    "sensor_temp": {
-      "type": "number",
-      "title": {
-        "en": "Current temperature value"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "C"
-      },
-      "min": -30,
-      "max": 50,
-      "decimals": 2,
-      "insights": true,
-      "uiComponent": "sensor"   
-    },
-    "sensor_humid": {
-      "type": "number",
-      "title": {
-        "en": "Current humidity value"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "%"
-      },
-      "min": 10,
-      "max": 90,
-      "decimals": 2,
-      "insights": true,
-      "uiComponent": "sensor"   
-    },
-    "sensor_co2": {
-      "type": "number",
-      "title": {
-        "en": "Current CO2 value"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "ppm"
-      },
-      "min": 0,
-      "max": 3000,
-      "decimals": 0,
-      "insights": true,
-      "uiComponent": "sensor"   
-    },
-    "sensor_voc": {
-      "type": "number",
-      "title": {
-        "en": "Current chemicals value"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "ppb"
-      },
-      "min": 0,
-      "max": 9000,
-      "decimals": 0,
-      "insights": true,
-      "uiComponent": "sensor"   
-    },
-    "sensor_pm25": {
-      "type": "number",
-      "title": {
-        "en": "Current PM2.5 value"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "ug/m"
-      },
-      "min": 0,
-      "max": 80,
-      "decimals": 0,
-      "insights": true,
-      "uiComponent": "sensor"   
-    },
-    "score": {
-      "type": "number",
-      "title": {
-        "en": "Current score value"
-      },
-      "getable": true,
-      "setable": false,
-      "min": 0,
-      "max": 100,
-      "decimals": 0,
-      "insights": true,
-      "uiComponent": "sensor"   
-    }    
-  },
+		},
+		"condition_temp": {
+			"type": "number",
+			"title": {
+				"en": "Current temperature condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"condition_humid": {
+			"type": "number",
+			"title": {
+				"en": "Current humidity condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"condition_co2": {
+			"type": "number",
+			"title": {
+				"en": "Current CO2 condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"condition_voc": {
+			"type": "number",
+			"title": {
+				"en": "Current chemicals condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"condition_pm25": {
+			"type": "number",
+			"title": {
+				"en": "Current PM2.5 condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"sensor_temp": {
+			"type": "number",
+			"title": {
+				"en": "Current temperature value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "C"
+			},
+			"min": -30,
+			"max": 50,
+			"decimals": 2,
+			"insights": true,
+			"uiComponent": "sensor"
+		},
+		"sensor_humid": {
+			"type": "number",
+			"title": {
+				"en": "Current humidity value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "%"
+			},
+			"min": 10,
+			"max": 90,
+			"decimals": 2,
+			"insights": true,
+			"uiComponent": "sensor"
+		},
+		"sensor_co2": {
+			"type": "number",
+			"title": {
+				"en": "Current CO2 value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "ppm"
+			},
+			"min": 0,
+			"max": 3000,
+			"decimals": 0,
+			"insights": true,
+			"uiComponent": "sensor"
+		},
+		"sensor_voc": {
+			"type": "number",
+			"title": {
+				"en": "Current chemicals value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "ppb"
+			},
+			"min": 0,
+			"max": 9000,
+			"decimals": 0,
+			"insights": true,
+			"uiComponent": "sensor"
+		},
+		"sensor_pm25": {
+			"type": "number",
+			"title": {
+				"en": "Current PM2.5 value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "ug/m"
+			},
+			"min": 0,
+			"max": 80,
+			"decimals": 0,
+			"insights": true,
+			"uiComponent": "sensor"
+		},
+		"score": {
+			"type": "number",
+			"title": {
+				"en": "Current score value"
+			},
+			"getable": true,
+			"setable": false,
+			"min": 0,
+			"max": 100,
+			"decimals": 0,
+			"insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/images/score.svg"
+		}
+	},
 	"flow": {
-		"triggers": [
-      {
+		"triggers": [{
 				"id": "ScoreAbove80",
 				"title": {
 					"en": "When score raised above 80"
@@ -236,8 +236,8 @@
 						}
 					}
 				]
-      },
-      {
+			},
+			{
 				"id": "ScoreBetween60-80",
 				"title": {
 					"en": "When score is in between 60 and 80"
@@ -266,8 +266,8 @@
 						}
 					}
 				]
-      },
-      {
+			},
+			{
 				"id": "ScoreBelow60",
 				"title": {
 					"en": "When score is below 60"
@@ -296,97 +296,91 @@
 						}
 					}
 				]
-      }
-    ],
-    "conditions": [
-      {
-				"id": "score_output",
-				"title": {
-					"en": "level of air quality:"
+			}
+		],
+		"conditions": [{
+			"id": "score_output",
+			"title": {
+				"en": "level of air quality:"
+			},
+			"hint": {
+				"en": "Level of air quality"
+			},
+			"args": [{
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
 				},
-				"hint": {
-					"en": "Level of air quality"
-				},
-				"args": [{
-						"name": "device",
-            "type": "device",
-            "filter": "driver_id=device"
-					},
-					{
-						"name": "argument_main",
-						"type": "dropdown",
-						"values": [
-              {
-								"id": "good",
-								"label": {
-									"en": "good, score above 80"
-								}
-							},
-							{
-								"id": "average",
-								"label": {
-									"en": "average, score between 60 and 80"
-								}
-							},
-							{
-								"id": "bad",
-								"label": {
-									"en": "bad, score between 40 and 60"
-								}
-							},
-							{
-								"id": "verybad",
-								"label": {
-									"en": "very bad, score is below 40"
-								}
+				{
+					"name": "argument_main",
+					"type": "dropdown",
+					"values": [{
+							"id": "good",
+							"label": {
+								"en": "good, score above 80"
 							}
-            ]
-					}
-				]
-      }       
-    ]  
-  },       
-  "drivers": [
-    {
-      "id": "device",
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          },
-          "options": {
-            "singular": false
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "name": {
-        "en": "device"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "latest_upload_date",
-        "score",
-        "condition_temp",
-        "condition_co2",
-        "condition_humid",
-        "condition_pm25",
-        "condition_voc",
-        "sensor_temp",
-        "sensor_co2",
-        "sensor_humid",
-        "sensor_pm25",
-        "sensor_voc"
-      ],
-      "images": {
-        "large": "/drivers/device/assets/images/large.png",
-        "small": "/drivers/device/assets/images/small.png"
-      }
-    }
-  ]
+						},
+						{
+							"id": "average",
+							"label": {
+								"en": "average, score between 60 and 80"
+							}
+						},
+						{
+							"id": "bad",
+							"label": {
+								"en": "bad, score between 40 and 60"
+							}
+						},
+						{
+							"id": "verybad",
+							"label": {
+								"en": "very bad, score is below 40"
+							}
+						}
+					]
+				}
+			]
+		}]
+	},
+	"drivers": [{
+		"id": "device",
+		"pair": [{
+				"id": "list_devices",
+				"template": "list_devices",
+				"navigation": {
+					"next": "add_devices"
+				},
+				"options": {
+					"singular": false
+				}
+			},
+			{
+				"id": "add_devices",
+				"template": "add_devices"
+			}
+		],
+		"name": {
+			"en": "device"
+		},
+		"class": "other",
+		"capabilities": [
+			"latest_upload_date",
+			"score",
+			"condition_temp",
+			"condition_co2",
+			"condition_humid",
+			"condition_pm25",
+			"condition_voc",
+			"sensor_temp",
+			"sensor_co2",
+			"sensor_humid",
+			"sensor_pm25",
+			"sensor_voc"
+		],
+		"images": {
+			"large": "/drivers/device/assets/images/large.png",
+			"small": "/drivers/device/assets/images/small.png"
+		}
+	}]
 }
