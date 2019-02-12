@@ -156,9 +156,7 @@
 			"min": 0,
 			"max": 3000,
 			"decimals": 0,
-			"insights": true,
-			"uiComponent": "sensor",
-            "icon": "/assets/images/co2.svg"
+			"insights": true
 		},
 		"sensor_voc": {
 			"type": "number",

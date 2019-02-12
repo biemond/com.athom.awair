@@ -1,5 +1,8 @@
 # awair change log
 
+## 0.0.3 
+- update pictures
+
 ## 0.0.2 
 - refresh time from 2 to 5 minutes because else will e restricted by awair
 - update pictures
