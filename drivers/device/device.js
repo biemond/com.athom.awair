@@ -21,14 +21,14 @@ class MyAwairDevice extends Homey.Device {
         Homey.ManagerCron.getTask(cronName)
             .then(task => {
                 this.log("The task exists: " + cronName);
-                task.on('run', () => this.pollAwairDevice(settings));
+                task.on('run', settings => this.pollAwairDevice(settings));
             })
             .catch(err => {
                 if (err.code == 404) {
                     this.log("The task has not been registered yet, registering task: " + cronName);
                     Homey.ManagerCron.registerTask(cronName, "*/5 * * * *", settings)
                         .then(task => {
-                            task.on('run', () => this.pollAwairDevice(settings));
+                            task.on('run', settings => this.pollAwairDevice(settings));
                         })
                         .catch(err => {
                             this.log('problem with registering cronjob: ${err.message}');
@@ -43,7 +43,7 @@ class MyAwairDevice extends Homey.Device {
         this._flowTriggerScoreBetween6080 = new Homey.FlowCardTrigger('ScoreBetween60-80').register();
         this._flowTriggerScoreBelow60 = new Homey.FlowCardTrigger('ScoreBelow60').register();
         this._conditionScoreOutput = new Homey.FlowCardCondition('score_output').register().registerRunListener((args, state) => {
-            var result = (this.conditionScoreOutputToString(this.getCapabilityValue('score')) == args.argument_main) 
+            let result = (this.conditionScoreOutputToString(this.getCapabilityValue('score')) == args.argument_main) 
             return Promise.resolve(result);
         }); 
 	}
@@ -97,13 +97,12 @@ class MyAwairDevice extends Homey.Device {
 
 	pollAwairDevice(settings) {
 		awair.getCurrentData(settings).then(data => {
-            let device = this;
-            var currentdate =new Date().timeNow();
+            let currentdate =new Date().timeNow();
 			this.log("refresh now " + currentdate);
 			console.log("Received data " + JSON.stringify(data));
             if (data.data != null){
                 console.log("object "+ JSON.stringify(data.data[0]));
-                var strUpdateDate = data.data[0].timestamp;
+                let strUpdateDate = data.data[0].timestamp;
                 console.log("last date " +  strUpdateDate.substring(11,24));
     
                 this.setCapabilityValue('condition_temp', data.data[0].indices[0].value);
@@ -118,7 +117,7 @@ class MyAwairDevice extends Homey.Device {
                 this.setCapabilityValue('sensor_voc', data.data[0].sensors[2].value);
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
 
-                var score = data.data[0].score;
+                let score = data.data[0].score;
                 this.setCapabilityValue('score',score);
                 let tokens = {
                     "score": score,

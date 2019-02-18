@@ -1,5 +1,8 @@
 # awair change log
 
+## 0.0.4
+- fix cron settings , still there is a homey bug https://github.com/athombv/homey-apps-sdk-issues/issues/50
+
 ## 0.0.3 
 - update pictures
 

@@ -16,8 +16,7 @@ class MyAwairDriver extends Homey.Driver {
 
 	onPair( socket ) {
 		let devices = []
-
-		var apikey = ManagerSettings.get('apikey')
+		let apikey = ManagerSettings.get('apikey')
 		this.log("key " + apikey);
 
 		socket.on('list_devices', function( data, callback ) {
@@ -29,27 +28,27 @@ class MyAwairDriver extends Homey.Driver {
 				// emit when devices are still being searched
 				awair.getDevices(apikey).then(data => {
 					console.log("apikey " + apikey);
-					var currentdate =new Date().timeNow();
+					let currentdate =new Date().timeNow();
 					console.log("refresh now " + currentdate);
 			
 					console.log("Received data");
 					console.log("object "+ JSON.stringify(data));
 
 					for ( var i = 0; i < data.devices.length; i++) {
-						var obj = data.devices[i];
+						let obj = data.devices[i];
 						console.log("object: " + obj);
 						console.log("device: " + obj.name);
 						console.log("deviceUUID: " + obj.deviceUUID);
 
 						var device =  { "name": obj.name,
 						                "data": {
-													"id": obj.deviceUUID,
-													"name": obj.name,
-													"apikey": apikey,
-													"deviceId": obj.deviceId,
-													"deviceType": obj.deviceType
+															"id": obj.deviceUUID,
+															"name": obj.name,
+															"apikey": apikey,
+															"deviceId": obj.deviceId,
+															"deviceType": obj.deviceType
 											      }
-									  };
+									        };
 						devices.push(device);
 						console.log(devices);
 					}	
