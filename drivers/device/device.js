@@ -109,12 +109,12 @@ class MyAwairDevice extends Homey.Device {
                 this.setCapabilityValue('condition_co2', data.data[0].indices[2].value);
                 this.setCapabilityValue('condition_humid', data.data[0].indices[1].value);
                 this.setCapabilityValue('condition_pm25', data.data[0].indices[4].value);
-                this.setCapabilityValue('condition_voc', data.data[0].indices[2].value);
+                this.setCapabilityValue('condition_voc', data.data[0].indices[3].value);
                 this.setCapabilityValue('sensor_temp', data.data[0].sensors[0].value);
                 this.setCapabilityValue('sensor_co2', data.data[0].sensors[2].value);
                 this.setCapabilityValue('sensor_humid', data.data[0].sensors[1].value);
                 this.setCapabilityValue('sensor_pm25', data.data[0].sensors[4].value);
-                this.setCapabilityValue('sensor_voc', data.data[0].sensors[2].value);
+                this.setCapabilityValue('sensor_voc', data.data[0].sensors[3].value);
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
 
                 let score = data.data[0].score;

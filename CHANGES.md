@@ -1,5 +1,8 @@
 # awair change log
 
+## 0.0.5
+- CO2 was using the wrong sensor value.
+
 ## 0.0.4
 - fix cron settings , still there is a homey bug https://github.com/athombv/homey-apps-sdk-issues/issues/50
 
