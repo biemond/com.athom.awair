@@ -1,5 +1,8 @@
 # awair change log
 
+## 0.0.6
+- Support for awair mint
+
 ## 0.0.5
 - CO2 was using the wrong sensor value.
 

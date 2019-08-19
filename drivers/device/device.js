@@ -104,17 +104,56 @@ class MyAwairDevice extends Homey.Device {
                 console.log("object "+ JSON.stringify(data.data[0]));
                 let strUpdateDate = data.data[0].timestamp;
                 console.log("last date " +  strUpdateDate.substring(11,24));
-    
-                this.setCapabilityValue('condition_temp', data.data[0].indices[0].value);
-                this.setCapabilityValue('condition_co2', data.data[0].indices[2].value);
-                this.setCapabilityValue('condition_humid', data.data[0].indices[1].value);
-                this.setCapabilityValue('condition_pm25', data.data[0].indices[4].value);
-                this.setCapabilityValue('condition_voc', data.data[0].indices[3].value);
-                this.setCapabilityValue('sensor_temp', data.data[0].sensors[0].value);
-                this.setCapabilityValue('sensor_co2', data.data[0].sensors[2].value);
-                this.setCapabilityValue('sensor_humid', data.data[0].sensors[1].value);
-                this.setCapabilityValue('sensor_pm25', data.data[0].sensors[4].value);
-                this.setCapabilityValue('sensor_voc', data.data[0].sensors[3].value);
+                
+                for ( var i = 0; i < data.data[0].indices.length; i++) {
+                    let obj = data.data[0].indices[i];
+                    console.log("object: " + obj);
+                    console.log("comp: " + obj.comp);
+                    console.log("value: " + obj.value);
+                    if ( obj.comp == "temp") {
+                        this.setCapabilityValue('condition_temp', obj.value);
+                    }
+                    if ( obj.comp == "co2") {
+                        this.setCapabilityValue('condition_co2', obj.value);
+                    }
+                    if ( obj.comp == "humid") {
+                        this.setCapabilityValue('condition_humid', obj.value);
+                    }
+                    if ( obj.comp == "pm25") {
+                        this.setCapabilityValue('condition_pm25', obj.value);
+                    }
+                    if ( obj.comp == "vox") {
+                        this.setCapabilityValue('condition_vox', obj.value);
+                    }                                                            
+                    if ( obj.comp == "lux") {
+                        this.setCapabilityValue('condition_lux', obj.value);
+                    }  
+                }
+                for ( var i = 0; i < data.data[0].sensors.length; i++) {
+                    let obj = data.data[0].sensors[i];
+                    console.log("object: " + obj);
+                    console.log("comp: " + obj.comp);
+                    console.log("value: " + obj.value);
+                    if ( obj.comp == "temp") {
+                        this.setCapabilityValue('sensor_temp', obj.value);
+                    }  
+                    if ( obj.comp == "co2") {
+                        this.setCapabilityValue('sensor_co2', obj.value);
+                    }
+                    if ( obj.comp == "humid") {
+                        this.setCapabilityValue('sensor_humid', obj.value);
+                    }  
+                    if ( obj.comp == "pm25") {
+                        this.setCapabilityValue('sensor_pm25', obj.value);
+                    }
+                    if ( obj.comp == "voc") {
+                        this.setCapabilityValue('sensor_voc', obj.value);
+                    }      
+                    if ( obj.comp == "lux") {
+                        this.setCapabilityValue('sensor_lux', obj.value);
+                    }   
+                }
+
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
 
                 let score = data.data[0].score;

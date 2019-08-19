@@ -4,7 +4,7 @@ Awair monitors your air quality for example in your living room and provides bac
 
 ## Device
 
-Every awair measuring tool is a device which you can monitor in homey. Tested it on awair 2nd edtion.
+Every awair measuring tool is a device which you can monitor in homey. Tested it on awair 2nd edtion + mint
 On the device it will show the following
 - Latest retrieval Date
 - Score
@@ -13,11 +13,13 @@ On the device it will show the following
 - condition_humid
 - condition_pm25
 - condition_voc
+- condition_lux
 - sensor_temp
 - sensor_co2
 - sensor_humid
 - sensor_pm25
 - sensor_voc
+- sensor_lux
 
 ### Retrieving the required AWAIR bearer token
 

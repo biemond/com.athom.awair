@@ -1,6 +1,6 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
@@ -75,6 +75,22 @@
 			},
 			"min": 0,
 			"max": 5,
+			"step": 1,
+			"insights": true,
+			"uiComponent": "slider"
+		},
+		"condition_lux": {
+			"type": "number",
+			"title": {
+				"en": "Current LUX condition"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lvl"
+			},
+			"min": 0,
+			"max": 100000,
 			"step": 1,
 			"insights": true,
 			"uiComponent": "slider"
@@ -155,6 +171,21 @@
 			},
 			"min": 0,
 			"max": 3000,
+			"decimals": 0,
+			"insights": true
+		},
+		"sensor_lux": {
+			"type": "number",
+			"title": {
+				"en": "Current LUX value"
+			},
+			"getable": true,
+			"setable": false,
+			"units": {
+				"en": "lux"
+			},
+			"min": 0,
+			"max": 100000,
 			"decimals": 0,
 			"insights": true
 		},
@@ -367,11 +398,13 @@
 			"score",
 			"condition_temp",
 			"condition_co2",
+			"condition_lux",
 			"condition_humid",
 			"condition_pm25",
 			"condition_voc",
 			"sensor_temp",
 			"sensor_co2",
+			"sensor_lux",
 			"sensor_humid",
 			"sensor_pm25",
 			"sensor_voc"
