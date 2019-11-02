@@ -1,5 +1,8 @@
 # awair change log
 
+## 0.0.7
+- Added energy consumption
+
 ## 0.0.6
 - Support for awair mint
 

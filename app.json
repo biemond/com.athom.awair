@@ -1,6 +1,6 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
@@ -393,6 +393,11 @@
 			"en": "device"
 		},
 		"class": "other",
+		"energy": {
+			"approximation": {
+			  "usageConstant": 2
+			}
+		},
 		"capabilities": [
 			"latest_upload_date",
 			"score",
