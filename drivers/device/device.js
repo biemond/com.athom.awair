@@ -135,22 +135,22 @@ class MyAwairDevice extends Homey.Device {
                     console.log("comp: " + obj.comp);
                     console.log("value: " + obj.value);
                     if ( obj.comp == "temp") {
-                        this.setCapabilityValue('sensor_temp', obj.value);
+                        this.setCapabilityValue('measure_temp', obj.value);
                     }  
                     if ( obj.comp == "co2") {
-                        this.setCapabilityValue('sensor_co2', obj.value);
+                        this.setCapabilityValue('measure_co2', obj.value);
                     }
                     if ( obj.comp == "humid") {
-                        this.setCapabilityValue('sensor_humid', obj.value);
+                        this.setCapabilityValue('measure_humid', obj.value);
                     }  
                     if ( obj.comp == "pm25") {
-                        this.setCapabilityValue('sensor_pm25', obj.value);
+                        this.setCapabilityValue('measure_pm25', obj.value);
                     }
                     if ( obj.comp == "voc") {
-                        this.setCapabilityValue('sensor_voc', obj.value);
+                        this.setCapabilityValue('measure_voc', obj.value);
                     }      
                     if ( obj.comp == "lux") {
-                        this.setCapabilityValue('sensor_lux', obj.value);
+                        this.setCapabilityValue('measure_lux', obj.value);
                     }   
                 }
 

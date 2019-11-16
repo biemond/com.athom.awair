@@ -1,4 +1,7 @@
 {
+  "0.0.9": {
+    "en": "New value triggers, requires re-install device , triggers measure_temp, measure_co2, measure_humid, measure_pm25, measure_voc, measure_lux"
+  },
   "0.0.8": {
     "en": "Update metadata"
   }

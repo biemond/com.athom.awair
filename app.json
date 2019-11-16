@@ -1,6 +1,6 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
@@ -144,7 +144,7 @@
 			"insights": true,
 			"uiComponent": "slider"
 		},
-		"sensor_temp": {
+		"measure_temp": {
 			"type": "number",
 			"title": {
 				"en": "Current temperature value"
@@ -160,7 +160,7 @@
 			"insights": true,
 			"uiComponent": "sensor"
 		},
-		"sensor_humid": {
+		"measure_humid": {
 			"type": "number",
 			"title": {
 				"en": "Current humidity value"
@@ -176,7 +176,7 @@
 			"insights": true,
 			"uiComponent": "sensor"
 		},
-		"sensor_co2": {
+		"measure_co2": {
 			"type": "number",
 			"title": {
 				"en": "Current CO2 value"
@@ -191,7 +191,7 @@
 			"decimals": 0,
 			"insights": true
 		},
-		"sensor_lux": {
+		"measure_lux": {
 			"type": "number",
 			"title": {
 				"en": "Current LUX value"
@@ -206,7 +206,7 @@
 			"decimals": 0,
 			"insights": true
 		},
-		"sensor_voc": {
+		"measure_voc": {
 			"type": "number",
 			"title": {
 				"en": "Current chemicals value"
@@ -222,7 +222,7 @@
 			"insights": true,
 			"uiComponent": "sensor"
 		},
-		"sensor_pm25": {
+		"measure_pm25": {
 			"type": "number",
 			"title": {
 				"en": "Current PM2.5 value"
@@ -342,7 +342,157 @@
 						}
 					}
 				]
-			}
+			},
+			{
+				"id": "measure_pm25_changed",
+				"title": {
+				  "en": "pm2.5 changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_pm25",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			},
+			{
+				"id": "measure_voc_changed",
+				"title": {
+				  "en": "VOC changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_voc",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			},
+			{
+				"id": "measure_lux_changed",
+				"title": {
+				  "en": "LUX changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_lux",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			},
+			{
+				"id": "measure_co2_changed",
+				"title": {
+				  "en": "CO2 changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_co2",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			},
+			{
+				"id": "measure_humid_changed",
+				"title": {
+				  "en": "humid changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_humid",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			},
+			{
+				"id": "measure_temp_changed",
+				"title": {
+				  "en": "temp changed"
+				},
+				"tokens": [
+				  {
+					"name": "measure_temp",
+					"type": "number",
+					"title": {
+					  "en": "value"
+					},
+					"example": {
+					  "en": "1"
+					}
+				  }
+				],
+				"args": [
+				  {
+					"name": "device",
+					"type": "device",
+					"filter": "driver_id=device"
+				  }
+				]
+			}			
 		],
 		"conditions": [{
 			"id": "score_output",
@@ -424,12 +574,12 @@
 			"condition_humid",
 			"condition_pm25",
 			"condition_voc",
-			"sensor_temp",
-			"sensor_co2",
-			"sensor_lux",
-			"sensor_humid",
-			"sensor_pm25",
-			"sensor_voc"
+			"measure_temp",
+			"measure_co2",
+			"measure_lux",
+			"measure_humid",
+			"measure_pm25",
+			"measure_voc"
 		],
 		"images": {
 			"large": "/drivers/device/assets/images/large.png",

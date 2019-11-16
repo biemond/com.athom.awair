@@ -14,12 +14,12 @@ On the device it will show the following
 - condition_pm25
 - condition_voc
 - condition_lux
-- sensor_temp
-- sensor_co2
-- sensor_humid
-- sensor_pm25
-- sensor_voc
-- sensor_lux
+- measure_temp
+- measure_co2
+- measure_humid
+- measure_pm25
+- measure_voc
+- measure_lux
 
 ### Retrieving the required AWAIR bearer token
 
@@ -28,10 +28,15 @@ When you go this page https://developer.getawair.com/onboard/welcome you can ask
 ## Flows
 
 ### triggers
-
 - ScoreAbove80
 - ScoreBetween60-80
 - ScoreBelow60
+- measure_temp
+- measure_co2
+- measure_humid
+- measure_pm25
+- measure_voc
+- measure_lux
 
 ### conditions
 

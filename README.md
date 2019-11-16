@@ -32,6 +32,12 @@ When you go this page https://developer.getawair.com/onboard/welcome you can ask
 - ScoreAbove80
 - ScoreBetween60-80
 - ScoreBelow60
+- measure_temp
+- measure_co2
+- measure_humid
+- measure_pm25
+- measure_voc
+- measure_lux
 
 ### conditions
 
