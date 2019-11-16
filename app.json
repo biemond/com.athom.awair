@@ -1,17 +1,34 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
-		"en": "awair"
+		"en": "Awair"
 	},
 	"description": {
-		"en": "awair monitors your air"
+		"en": "Awair monitors your air"
 	},
 	"category": [
 		"climate"
 	],
+	"tags": {
+		"en": [
+			"awair",
+			"air",
+			"co2",
+			"pm25",
+			"monitoring",
+			"temperature",
+			"humidity",
+			"purifier"
+		]
+    },  
+    "bugs": {
+		"url": "https://github.com/biemond/com.athom.awair/issues"
+	},
+	"source": "https://github.com/biemond/com.athom.awair",
+	"support": "mailto:biemond@gmail.com",  
 	"permissions": [],
 	"images": {
 		"large": "/assets/images/large.png",
