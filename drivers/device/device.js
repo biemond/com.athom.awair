@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const { ManagerSettings } = require('homey');
-const awair = require('index.js');
+const awair = require('../index.js');
 
 Date.prototype.timeNow = function(){ 
     return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() + " " + ((this.getHours()>12)?('PM'):'AM');

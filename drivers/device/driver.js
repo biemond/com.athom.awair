@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const awair = require('index.js');
+const awair = require('../index.js');
 const { ManagerSettings } = require('homey');
 
 Date.prototype.timeNow = function(){ 
