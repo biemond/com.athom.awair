@@ -1,5 +1,3 @@
-Awair
-
 Awair monitors your air quality for example in your living room and provides back scores about your air quality like total score, temp, CO2, VOC PM2.5 and humidity. With this and flows you can automate and improve the air with air purifiers or open windows
 
 Device
