@@ -1,6 +1,6 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
@@ -364,7 +364,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			},
@@ -389,7 +389,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			},
@@ -414,7 +414,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			},
@@ -439,7 +439,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			},
@@ -464,7 +464,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			},
@@ -489,7 +489,7 @@
 				  {
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				  }
 				]
 			}			
@@ -505,7 +505,7 @@
 			"args": [{
 					"name": "device",
 					"type": "device",
-					"filter": "driver_id=device"
+					"filter": "driver_id=device|localDevice"
 				},
 				{
 					"name": "argument_main",
