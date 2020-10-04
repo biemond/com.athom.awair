@@ -131,8 +131,8 @@ class MyLocalAwairDriver extends Homey.Device {
                 if ( result.hasOwnProperty('pm25')) {
                     this.setCapabilityValue('measure_pm25', result.pm25);
                 }
-                if ( result.hasOwnProperty('vox')) {
-                    this.setCapabilityValue('measure_voc', result.vox);
+                if ( result.hasOwnProperty('voc')) {
+                    this.setCapabilityValue('measure_voc', result.voc);
                 }                                                            
                 if ( result.hasOwnProperty('lux')) {
                     this.setCapabilityValue('measure_lux', result.lux);
