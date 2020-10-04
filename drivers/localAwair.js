@@ -1,37 +1,23 @@
 (function () {
 
     // main settings
-    const https = require('https')
+    // var http = require('http.min');
+    const https = require('http')
     var options = {
-        protocol: 'https:',
-        hostname: 'developer-apis.awair.is',
-        path: '/dummy',
+        protocol: 'http:',
+        path: '/air-data/latest',
+        method: 'GET',
         headers: {}
     };
 
-    var awair = exports;
+    var localAwair = exports;
 
     // active functions()  -------------------------------------  active functions()  --------------------------------------------
 
-    awair.getDevices = function getDevices(apikey) {
-        let url = '/v1/users/self/devices';
+    localAwair.getCurrentData = function getCurrentData(settings) {
 
         return new Promise((resolve, reject) => {
-            getData(url, apikey, (error, jsonobj) => {
-                if (jsonobj) {
-                    resolve(jsonobj);
-                } else {
-                    reject(error);
-                }
-            });
-        });
-    }
-
-    awair.getCurrentData = function getCurrentData(settings) {
-        let url = '/v1/users/self/devices/'+settings.deviceType+'/'+settings.deviceId+'/air-data/latest?fahrenheit=false';
-
-        return new Promise((resolve, reject) => {
-            getData(url, settings.apikey, (error, jsonobj) => {
+            getLocalData(settings.ipkey, (error, jsonobj) => {
                 if (jsonobj) {
                     resolve(jsonobj);
                 } else {
@@ -42,15 +28,15 @@
         });
     }
 
-    function getData(url, token, callback) {
-        options.path = url;
+    function getLocalData(ipkey, callback) {
+
+        options.hostname = ipkey;
         options.headers = {
             'User-Agent': 'Node.js http.min',
             'Accept': 'application/json',
-            'Authorization': 'Bearer '+ token
+            'Connection': 'keep-alive'
         };
-
-        console.log('url ' + url);
+        console.log(options);
 
         const req = https.request(options, res => {
             console.log('-------------------')    
@@ -64,7 +50,7 @@
             res.on("end", () => {                
                 if (res.statusCode == 200 ){
                     try {
-                        sharedText = JSON.parse(body.toString());
+                        sharedText = JSON.parse(body);
                     }
                     catch(error) {
                         sharedText = "ERROR";
@@ -88,6 +74,7 @@
           }
         );
         req.setTimeout(3000);
+        // req.write(json)
         req.end()
     }
 

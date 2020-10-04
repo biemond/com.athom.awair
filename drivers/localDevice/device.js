@@ -2,33 +2,44 @@
 
 const Homey = require('homey');
 const { ManagerSettings } = require('homey');
-const awair = require('../index.js');
+const localAwair = require('../localAwair.js');
 
 Date.prototype.timeNow = function(){ 
     return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() + " " + ((this.getHours()>12)?('PM'):'AM');
 };
 
-class MyAwairDevice extends Homey.Device {
+class MyLocalAwairDriver extends Homey.Device {
 
 	onInit() {
-		this.log('MyAwairDevice has been inited');
+		this.log('MyLocalAwairDriver has been inited');
 
         let settings = this.getData();
+
+        this.log('create cronjob');
         let name = this.getData().id;
+        this.log("name " + name );
         let cronName = this.getData().id.toLowerCase();
-		this.log("settings " + settings);
+        this.log('cronjob: '+cronName);
 
         Homey.ManagerCron.getTask(cronName)
             .then(task => {
                 this.log("The task exists: " + cronName);
-                task.on('run', settings => this.pollAwairDevice(settings));
+                this.log('Unregistering cron:', cronName);
+                Homey.ManagerCron.unregisterTask(cronName, function (err, success) {});
+                Homey.ManagerCron.registerTask(cronName,  "*/1 * * * *", settings)
+                .then(task => {
+                    task.on('run', settings => this.pollLocalAwairDevice(settings));
+                })
+                .catch(err => {
+                    this.log('problem with registering cronjob: ${err.message}');
+                });            
             })
             .catch(err => {
                 if (err.code == 404) {
                     this.log("The task has not been registered yet, registering task: " + cronName);
-                    Homey.ManagerCron.registerTask(cronName, "*/5 * * * *", settings)
+                    Homey.ManagerCron.registerTask(cronName,  "*/1 * * * *", settings)
                         .then(task => {
-                            task.on('run', settings => this.pollAwairDevice(settings));
+                            task.on('run', settings => this.pollLocalAwairDevice(settings));
                         })
                         .catch(err => {
                             this.log('problem with registering cronjob: ${err.message}');
@@ -37,7 +48,7 @@ class MyAwairDevice extends Homey.Device {
                     this.log('other cron error: ${err.message}');
                 }
             });
-        this.pollAwairDevice(settings);
+        this.pollLocalAwairDevice(settings)
 
         this._flowTriggerScoreAbove80 = new Homey.FlowCardTrigger('ScoreAbove80').register();
         this._flowTriggerScoreBetween6080 = new Homey.FlowCardTrigger('ScoreBetween60-80').register();
@@ -95,68 +106,41 @@ class MyAwairDevice extends Homey.Device {
     } // end onDeleted
 
 
-	pollAwairDevice(settings) {
-		awair.getCurrentData(settings).then(data => {
+	pollLocalAwairDevice(settings) {
+        this.log('exec pollLocalAwairDevice');
+        localAwair.getCurrentData(settings).then(data => {
             let currentdate =new Date().timeNow();
             this.log("refresh now " + currentdate);
+            let result = data;
+            if (result != "ERROR"){
 
-            if (data != "ERROR"){
-                console.log("object "+ JSON.stringify(data.data[0]));
-                let strUpdateDate = data.data[0].timestamp;
-                console.log("last date " +  strUpdateDate.substring(11,24));
+                console.log("Received data " + JSON.stringify(result));
                 
-                for ( var i = 0; i < data.data[0].indices.length; i++) {
-                    let obj = data.data[0].indices[i];
-                    console.log("object: " + obj);
-                    console.log("comp: " + obj.comp);
-                    console.log("value: " + obj.value);
-                    if ( obj.comp == "temp") {
-                        this.setCapabilityValue('condition_temp', obj.value);
-                    }
-                    if ( obj.comp == "co2") {
-                        this.setCapabilityValue('condition_co2', obj.value);
-                    }
-                    if ( obj.comp == "humid") {
-                        this.setCapabilityValue('condition_humid', obj.value);
-                    }
-                    if ( obj.comp == "pm25") {
-                        this.setCapabilityValue('condition_pm25', obj.value);
-                    }
-                    if ( obj.comp == "vox") {
-                        this.setCapabilityValue('condition_vox', obj.value);
-                    }                                                            
-                    if ( obj.comp == "lux") {
-                        this.setCapabilityValue('condition_lux', obj.value);
-                    }  
+
+                let strUpdateDate = result.timestamp;
+                console.log("last date " +  strUpdateDate.substring(11,24));
+                if ( result.hasOwnProperty('temp')) {
+                    this.setCapabilityValue('measure_temp', result.temp);
                 }
-                for ( var i = 0; i < data.data[0].sensors.length; i++) {
-                    let obj = data.data[0].sensors[i];
-                    console.log("object: " + obj);
-                    console.log("comp: " + obj.comp);
-                    console.log("value: " + obj.value);
-                    if ( obj.comp == "temp") {
-                        this.setCapabilityValue('measure_temp', obj.value);
-                    }  
-                    if ( obj.comp == "co2") {
-                        this.setCapabilityValue('measure_co2', obj.value);
-                    }
-                    if ( obj.comp == "humid") {
-                        this.setCapabilityValue('measure_humid', obj.value);
-                    }  
-                    if ( obj.comp == "pm25") {
-                        this.setCapabilityValue('measure_pm25', obj.value);
-                    }
-                    if ( obj.comp == "voc") {
-                        this.setCapabilityValue('measure_voc', obj.value);
-                    }      
-                    if ( obj.comp == "lux") {
-                        this.setCapabilityValue('measure_lux', obj.value);
-                    }   
+                if ( result.hasOwnProperty('co2')) {
+                    this.setCapabilityValue('measure_co2', result.co2);
                 }
+                if ( result.hasOwnProperty('humid')) {
+                    this.setCapabilityValue('measure_humid', result.humid);
+                }
+                if ( result.hasOwnProperty('pm25')) {
+                    this.setCapabilityValue('measure_pm25', result.pm25);
+                }
+                if ( result.hasOwnProperty('vox')) {
+                    this.setCapabilityValue('measure_voc', result.vox);
+                }                                                            
+                if ( result.hasOwnProperty('lux')) {
+                    this.setCapabilityValue('measure_lux', result.lux);
+                }  
 
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
 
-                let score = data.data[0].score;
+                let score = result.score;
                 this.setCapabilityValue('score',score);
                 let tokens = {
                     "score": score,
@@ -171,10 +155,10 @@ class MyAwairDevice extends Homey.Device {
                 } else if ( this.getCapabilityValue('score') >= 60 
                        && score < 60 ) {
                     this.flowTriggerScoreBelow60(tokens);
-                }
+                }                
             }
-		})
+        })   
 	}
 }
 
-module.exports = MyAwairDevice;
+module.exports = MyLocalAwairDriver;

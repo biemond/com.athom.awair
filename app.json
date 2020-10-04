@@ -1,6 +1,6 @@
 {
 	"id": "com.athom.awair",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"compatibility": ">=1.5.0",
 	"sdk": 2,
 	"name": {
@@ -539,7 +539,8 @@
 			]
 		}]
 	},
-	"drivers": [{
+	"drivers": [
+		{
 		"id": "device",
 		"pair": [{
 				"id": "list_devices",
@@ -557,7 +558,7 @@
 			}
 		],
 		"name": {
-			"en": "device"
+			"en": "Awair device using cloud data"
 		},
 		"class": "other",
 		"energy": {
@@ -585,5 +586,58 @@
 			"large": "/drivers/device/assets/images/large.png",
 			"small": "/drivers/device/assets/images/small.png"
 		}
-	}]
+	},
+	{
+		"id": "localDevice",
+		"pair": [
+			{
+				"id": "pair"
+			}
+		],
+		"settings": [
+			{
+				"type": "group",
+				"label": {
+					"en": "General settings"
+				},
+				"children": [
+					{
+						"id": "ipkey",
+						"type": "text",
+						"label": {
+							"en": "Awair device IP address"
+						},
+						"value": "",
+						"hint": {
+							"en": "Enter the IP address key of your Awair device"
+						}
+					}
+				]
+			}
+		],
+		"name": {
+			"en": "Awair device using local data"
+		},
+		"class": "other",
+		"energy": {
+			"approximation": {
+			  "usageConstant": 2
+			}
+		},
+		"capabilities": [
+			"latest_upload_date",
+			"score",
+			"measure_temp",
+			"measure_co2",
+			"measure_lux",
+			"measure_humid",
+			"measure_pm25",
+			"measure_voc"
+		],
+		"images": {
+			"large": "/drivers/localDevice/assets/images/large.png",
+			"small": "/drivers/localDevice/assets/images/small.png"
+		}
+	}
+]
 }

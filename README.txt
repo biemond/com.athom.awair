@@ -1,17 +1,20 @@
 Awair monitors your air quality for example in your living room and provides back scores about your air quality like total score, temp, CO2, VOC PM2.5 and humidity. With this and flows you can automate and improve the air with air purifiers or open windows
 
-Device
+2 Devices
+- Device, which uses the Awair cloud data and refreshes every 5 minutes.
+- LocalDevice, which uses the Awair device local data and refreshes every minute. It can be you need to enable expirimental devlopement mode on the app
 
 Every awair measuring tool is a device which you can monitor in homey. Tested it on awair 2nd edtion + mint
+
 On the device it will show the following
 - Latest retrieval Date
 - Score
-- condition_temp
-- condition_co2
-- condition_humid
-- condition_pm25
-- condition_voc
-- condition_lux
+- condition_temp (only on Device)
+- condition_co2 (only on Device)
+- condition_humid (only on Device)
+- condition_pm25 (only on Device)
+- condition_voc (only on Device)
+- condition_lux (only on Device)
 - measure_temp
 - measure_co2
 - measure_humid
