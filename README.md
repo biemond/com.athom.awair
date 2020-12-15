@@ -26,7 +26,7 @@ On the device it will show the following
 
 ### Retrieving the required AWAIR bearer token
 
-When you go this page https://developer.getawair.com/onboard/welcome you can ask for a token which you can use in this app (it can take a few days). Go the awair app settings and add the token to the api field.
+When you go this page https://developer.getawair.com/onboard/welcome you can login and request an API Access Token with your existing Awair Account. HOBBYIST Tier Access Tokens are automatically approved. (If you don't get redirected, click through to the Access Token page.) Go to the Awair app settings and add the token to the api field.
 
 ## Flows
 
