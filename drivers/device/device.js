@@ -99,8 +99,7 @@ class MyAwairDevice extends Homey.Device {
 		awair.getCurrentData(settings).then(data => {
             let currentdate =new Date().timeNow();
             this.log("refresh now " + currentdate);
-
-            if (data != "ERROR"){
+            if (data != "ERROR" && JSON.stringify(data.data) !== [] && JSON.stringify(data.data[0]) !== undefined){
                 console.log("object "+ JSON.stringify(data.data[0]));
                 let strUpdateDate = data.data[0].timestamp;
                 console.log("last date " +  strUpdateDate.substring(11,24));
@@ -111,7 +110,9 @@ class MyAwairDevice extends Homey.Device {
                     console.log("comp: " + obj.comp);
                     console.log("value: " + obj.value);
                     if ( obj.comp == "temp") {
-                        this.setCapabilityValue('condition_temp', obj.value);
+                        if (obj.value >= 0 ) {
+                           this.setCapabilityValue('condition_temp', obj.value);
+                        }
                     }
                     if ( obj.comp == "co2") {
                         this.setCapabilityValue('condition_co2', obj.value);
@@ -155,22 +156,23 @@ class MyAwairDevice extends Homey.Device {
                 }
 
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
-
                 let score = data.data[0].score;
-                this.setCapabilityValue('score',score);
-                let tokens = {
-                    "score": score,
-                    "device": settings.name
-                };
-                if ( this.getCapabilityValue('score') < 80  && score >= 80 ) {
-                    this.flowTriggerScoreAbove80(tokens);
-                } else if ( this.getCapabilityValue('score') >= 80 
-                       && score >= 60 
-                       && score < 80 ) {
-                    this.flowTriggerScoreBetween6080(tokens);
-                } else if ( this.getCapabilityValue('score') >= 60 
-                       && score < 60 ) {
-                    this.flowTriggerScoreBelow60(tokens);
+                if ( score > 0 ) {
+                    this.setCapabilityValue('score',score);
+                    let tokens = {
+                        "score": score,
+                        "device": settings.name
+                    };
+                    if ( this.getCapabilityValue('score') < 80  && score >= 80 ) {
+                        this.flowTriggerScoreAbove80(tokens);
+                    } else if ( this.getCapabilityValue('score') >= 80 
+                        && score >= 60 
+                        && score < 80 ) {
+                        this.flowTriggerScoreBetween6080(tokens);
+                    } else if ( this.getCapabilityValue('score') >= 60 
+                        && score < 60 ) {
+                        this.flowTriggerScoreBelow60(tokens);
+                    }
                 }
             }
 		})

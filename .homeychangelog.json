@@ -1,4 +1,7 @@
 {
+  "0.0.14": {
+    "en": "Fix 0 values measurements"
+  },   
   "0.0.13": {
     "en": "Add local device to pull local awair data every minute, not from the cloud"
   },    

@@ -137,25 +137,25 @@ class MyLocalAwairDriver extends Homey.Device {
                 if ( result.hasOwnProperty('lux')) {
                     this.setCapabilityValue('measure_lux', result.lux);
                 }  
-
                 this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11,24));
-
                 let score = result.score;
-                this.setCapabilityValue('score',score);
-                let tokens = {
-                    "score": score,
-                    "device": settings.name
-                };
-                if ( this.getCapabilityValue('score') < 80  && score >= 80 ) {
-                    this.flowTriggerScoreAbove80(tokens);
-                } else if ( this.getCapabilityValue('score') >= 80 
-                       && score >= 60 
-                       && score < 80 ) {
-                    this.flowTriggerScoreBetween6080(tokens);
-                } else if ( this.getCapabilityValue('score') >= 60 
-                       && score < 60 ) {
-                    this.flowTriggerScoreBelow60(tokens);
-                }                
+                if ( score > 0 ) {
+                    this.setCapabilityValue('score',score);
+                    let tokens = {
+                        "score": score,
+                        "device": settings.name
+                    };
+                    if ( this.getCapabilityValue('score') < 80  && score >= 80 ) {
+                        this.flowTriggerScoreAbove80(tokens);
+                    } else if ( this.getCapabilityValue('score') >= 80 
+                        && score >= 60 
+                        && score < 80 ) {
+                        this.flowTriggerScoreBetween6080(tokens);
+                    } else if ( this.getCapabilityValue('score') >= 60 
+                        && score < 60 ) {
+                        this.flowTriggerScoreBelow60(tokens);
+                    }
+                }
             }
         })   
 	}
