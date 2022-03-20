@@ -1,16 +1,16 @@
 {
-  "settings": {
-    "title": "AWAIR Settings Page",
-    "subtitle": "Please provide the api key"
-  },
-	"pair": {
-		"start": {
-			"title": "Setup Awair local device",
-			"intro": "Enter the ip address of the awair device",
-			"error": "An error has occurred.",
-			"required": "IP address is a required value.",
-			"ipkey": "Awair IP address",
-			"saveSettings": "Save settings"
-		}
+    "settings": {
+      "title": "AWAIR Settings Page",
+      "subtitle": "Please provide the api key"
+    },
+      "pair": {
+          "start": {
+              "title": "Setup Awair local device",
+              "intro": "Enter the ip address of the awair device",
+              "error": "An error has occurred.",
+              "required": "IP address is a required value.",
+              "ipkey": "Awair IP address",
+              "saveSettings": "Save settings"
+          }
+    }
   }
-}

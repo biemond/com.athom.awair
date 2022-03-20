@@ -1,643 +1,522 @@
 {
-	"id": "com.athom.awair",
-	"version": "0.0.14",
-	"compatibility": ">=1.5.0",
-	"sdk": 2,
-	"name": {
-		"en": "Awair"
-	},
-	"description": {
-		"en": "Awair monitors your air"
-	},
-	"category": [
-		"climate"
-	],
-	"tags": {
-		"en": [
-			"awair",
-			"air",
-			"co2",
-			"pm25",
-			"monitoring",
-			"temperature",
-			"humidity",
-			"purifier"
-		]
-    },  
-    "bugs": {
-		"url": "https://github.com/biemond/com.athom.awair/issues"
-	},
-	"source": "https://github.com/biemond/com.athom.awair",
-	"support": "mailto:biemond@gmail.com",  
-	"permissions": [],
-	"images": {
-		"large": "/assets/images/large.png",
-		"small": "/assets/images/small.png"
-	},
-	"author": {
-		"name": "Edwin Biemond",
-		"email": "biemond@gmail.com"
-	},
-	"capabilities": {
-		"latest_upload_date": {
-			"type": "string",
-			"title": {
-				"en": "Latest update date"
-			},
-			"getable": true,
-			"setable": false,
-			"icon": "/assets/images/clock.svg"
-		},
-		"condition_temp": {
-			"type": "number",
-			"title": {
-				"en": "Current temperature condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 5,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"condition_humid": {
-			"type": "number",
-			"title": {
-				"en": "Current humidity condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 5,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"condition_co2": {
-			"type": "number",
-			"title": {
-				"en": "Current CO2 condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 5,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"condition_lux": {
-			"type": "number",
-			"title": {
-				"en": "Current LUX condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 100000,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"condition_voc": {
-			"type": "number",
-			"title": {
-				"en": "Current chemicals condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 5,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"condition_pm25": {
-			"type": "number",
-			"title": {
-				"en": "Current PM2.5 condition"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lvl"
-			},
-			"min": 0,
-			"max": 5,
-			"step": 1,
-			"insights": true,
-			"uiComponent": "slider"
-		},
-		"measure_temp": {
-			"type": "number",
-			"title": {
-				"en": "Current temperature value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "C"
-			},
-			"min": -30,
-			"max": 50,
-			"decimals": 2,
-			"insights": true,
-			"uiComponent": "sensor"
-		},
-		"measure_humid": {
-			"type": "number",
-			"title": {
-				"en": "Current humidity value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "%"
-			},
-			"min": 10,
-			"max": 90,
-			"decimals": 2,
-			"insights": true,
-			"uiComponent": "sensor"
-		},
-		"measure_co2": {
-			"type": "number",
-			"title": {
-				"en": "Current CO2 value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "ppm"
-			},
-			"min": 0,
-			"max": 3000,
-			"decimals": 0,
-			"insights": true
-		},
-		"measure_lux": {
-			"type": "number",
-			"title": {
-				"en": "Current LUX value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "lux"
-			},
-			"min": 0,
-			"max": 100000,
-			"decimals": 0,
-			"insights": true
-		},
-		"measure_voc": {
-			"type": "number",
-			"title": {
-				"en": "Current chemicals value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "ppb"
-			},
-			"min": 0,
-			"max": 9000,
-			"decimals": 0,
-			"insights": true,
-			"uiComponent": "sensor"
-		},
-		"measure_pm25": {
-			"type": "number",
-			"title": {
-				"en": "Current PM2.5 value"
-			},
-			"getable": true,
-			"setable": false,
-			"units": {
-				"en": "ug/m"
-			},
-			"min": 0,
-			"max": 80,
-			"decimals": 0,
-			"insights": true,
-			"uiComponent": "sensor"
-		},
-		"score": {
-			"type": "number",
-			"title": {
-				"en": "Current score value"
-			},
-			"getable": true,
-			"setable": false,
-			"min": 0,
-			"max": 100,
-			"decimals": 0,
-			"insights": true,
-            "uiComponent": "sensor"
-		}
-	},
-	"flow": {
-		"triggers": [{
-				"id": "ScoreAbove80",
-				"title": {
-					"en": "When score raised above 80"
-				},
-				"hint": {
-					"en": "Triggers when the score is above 80"
-				},
-				"tokens": [{
-						"name": "score",
-						"type": "number",
-						"title": {
-							"en": "ActualScore"
-						},
-						"example": {
-							"en": "81"
-						}
-					},
-					{
-						"name": "device",
-						"type": "string",
-						"title": {
-							"en": "Device"
-						},
-						"example": {
-							"en": "My awair"
-						}
-					}
-				]
-			},
-			{
-				"id": "ScoreBetween60-80",
-				"title": {
-					"en": "When score is in between 60 and 80"
-				},
-				"hint": {
-					"en": "Triggers when the score is in between 60 and 80"
-				},
-				"tokens": [{
-						"name": "score",
-						"type": "number",
-						"title": {
-							"en": "ActualScore"
-						},
-						"example": {
-							"en": "81"
-						}
-					},
-					{
-						"name": "device",
-						"type": "string",
-						"title": {
-							"en": "Device"
-						},
-						"example": {
-							"en": "My awair"
-						}
-					}
-				]
-			},
-			{
-				"id": "ScoreBelow60",
-				"title": {
-					"en": "When score is below 60"
-				},
-				"hint": {
-					"en": "Triggers when the score is below 60"
-				},
-				"tokens": [{
-						"name": "score",
-						"type": "number",
-						"title": {
-							"en": "ActualScore"
-						},
-						"example": {
-							"en": "55"
-						}
-					},
-					{
-						"name": "device",
-						"type": "string",
-						"title": {
-							"en": "Device"
-						},
-						"example": {
-							"en": "My awair"
-						}
-					}
-				]
-			},
-			{
-				"id": "measure_pm25_changed",
-				"title": {
-				  "en": "pm2.5 changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_pm25",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			},
-			{
-				"id": "measure_voc_changed",
-				"title": {
-				  "en": "VOC changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_voc",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			},
-			{
-				"id": "measure_lux_changed",
-				"title": {
-				  "en": "LUX changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_lux",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			},
-			{
-				"id": "measure_co2_changed",
-				"title": {
-				  "en": "CO2 changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_co2",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			},
-			{
-				"id": "measure_humid_changed",
-				"title": {
-				  "en": "humid changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_humid",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			},
-			{
-				"id": "measure_temp_changed",
-				"title": {
-				  "en": "temp changed"
-				},
-				"tokens": [
-				  {
-					"name": "measure_temp",
-					"type": "number",
-					"title": {
-					  "en": "value"
-					},
-					"example": {
-					  "en": "1"
-					}
-				  }
-				],
-				"args": [
-				  {
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				  }
-				]
-			}			
-		],
-		"conditions": [{
-			"id": "score_output",
-			"title": {
-				"en": "level of air quality:"
-			},
-			"hint": {
-				"en": "Level of air quality"
-			},
-			"args": [{
-					"name": "device",
-					"type": "device",
-					"filter": "driver_id=device|localDevice"
-				},
-				{
-					"name": "argument_main",
-					"type": "dropdown",
-					"values": [{
-							"id": "good",
-							"label": {
-								"en": "good, score above 80"
-							}
-						},
-						{
-							"id": "average",
-							"label": {
-								"en": "average, score between 60 and 80"
-							}
-						},
-						{
-							"id": "bad",
-							"label": {
-								"en": "bad, score between 40 and 60"
-							}
-						},
-						{
-							"id": "verybad",
-							"label": {
-								"en": "very bad, score is below 40"
-							}
-						}
-					]
-				}
-			]
-		}]
-	},
-	"drivers": [
-		{
-		"id": "device",
-		"pair": [{
-				"id": "list_devices",
-				"template": "list_devices",
-				"navigation": {
-					"next": "add_devices"
-				},
-				"options": {
-					"singular": false
-				}
-			},
-			{
-				"id": "add_devices",
-				"template": "add_devices"
-			}
-		],
-		"name": {
-			"en": "Awair device using cloud data"
-		},
-		"class": "other",
-		"energy": {
-			"approximation": {
-			  "usageConstant": 2
-			}
-		},
-		"capabilities": [
-			"latest_upload_date",
-			"score",
-			"condition_temp",
-			"condition_co2",
-			"condition_lux",
-			"condition_humid",
-			"condition_pm25",
-			"condition_voc",
-			"measure_temp",
-			"measure_co2",
-			"measure_lux",
-			"measure_humid",
-			"measure_pm25",
-			"measure_voc"
-		],
-		"images": {
-			"large": "/drivers/device/assets/images/large.png",
-			"small": "/drivers/device/assets/images/small.png"
-		}
-	},
-	{
-		"id": "localDevice",
-		"pair": [
-			{
-				"id": "pair"
-			}
-		],
-		"settings": [
-			{
-				"type": "group",
-				"label": {
-					"en": "General settings"
-				},
-				"children": [
-					{
-						"id": "ipkey",
-						"type": "text",
-						"label": {
-							"en": "Awair device IP address"
-						},
-						"value": "",
-						"hint": {
-							"en": "Enter the IP address key of your Awair device"
-						}
-					}
-				]
-			}
-		],
-		"name": {
-			"en": "Awair device using local data"
-		},
-		"class": "other",
-		"energy": {
-			"approximation": {
-			  "usageConstant": 2
-			}
-		},
-		"capabilities": [
-			"latest_upload_date",
-			"score",
-			"measure_temp",
-			"measure_co2",
-			"measure_lux",
-			"measure_humid",
-			"measure_pm25",
-			"measure_voc"
-		],
-		"images": {
-			"large": "/drivers/localDevice/assets/images/large.png",
-			"small": "/drivers/localDevice/assets/images/small.png"
-		}
-	}
-]
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.athom.awair",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "brandColor": "#df001c",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Awair"
+  },
+  "description": {
+    "en": "Awair monitors your air"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Edwin Biemond",
+    "email": "biemond@gmail.com"
+  },
+  "tags": {
+    "en": [
+      "awair",
+      "air",
+      "co2",
+      "pm25",
+      "monitoring",
+      "temperature",
+      "humidity",
+      "purifier"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/biemond/com.athom.awair/issues"
+  },
+  "source": "https://github.com/biemond/com.athom.awair",
+  "support": "mailto:biemond@gmail.com",
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "When score raised above 80"
+        },
+        "hint": {
+          "en": "Triggers when the score is above 80"
+        },
+        "tokens": [
+          {
+            "name": "score",
+            "type": "number",
+            "title": {
+              "en": "ActualScore"
+            },
+            "example": {
+              "en": "81"
+            }
+          },
+          {
+            "name": "device",
+            "type": "string",
+            "title": {
+              "en": "Device"
+            },
+            "example": {
+              "en": "My awair"
+            }
+          }
+        ],
+        "id": "ScoreAbove80"
+      },
+      {
+        "title": {
+          "en": "When score is below 60"
+        },
+        "hint": {
+          "en": "Triggers when the score is below 60"
+        },
+        "tokens": [
+          {
+            "name": "score",
+            "type": "number",
+            "title": {
+              "en": "ActualScore"
+            },
+            "example": {
+              "en": "55"
+            }
+          },
+          {
+            "name": "device",
+            "type": "string",
+            "title": {
+              "en": "Device"
+            },
+            "example": {
+              "en": "My awair"
+            }
+          }
+        ],
+        "id": "ScoreBelow60"
+      },
+      {
+        "title": {
+          "en": "When score is in between 60 and 80"
+        },
+        "hint": {
+          "en": "Triggers when the score is in between 60 and 80"
+        },
+        "tokens": [
+          {
+            "name": "score",
+            "type": "number",
+            "title": {
+              "en": "ActualScore"
+            },
+            "example": {
+              "en": "81"
+            }
+          },
+          {
+            "name": "device",
+            "type": "string",
+            "title": {
+              "en": "Device"
+            },
+            "example": {
+              "en": "My awair"
+            }
+          }
+        ],
+        "id": "ScoreBetween60-80"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "level of air quality:"
+        },
+        "hint": {
+          "en": "Level of air quality"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          },
+          {
+            "name": "argument_main",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "good",
+                "label": {
+                  "en": "good, score above 80"
+                }
+              },
+              {
+                "id": "average",
+                "label": {
+                  "en": "average, score between 60 and 80"
+                }
+              },
+              {
+                "id": "bad",
+                "label": {
+                  "en": "bad, score between 40 and 60"
+                }
+              },
+              {
+                "id": "verybad",
+                "label": {
+                  "en": "very bad, score is below 40"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "score_output"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Awair device using cloud data"
+      },
+      "class": "sensor",
+      "energy": {
+        "approximation": {
+          "usageConstant": 2
+        }
+      },
+      "capabilities": [
+        "latest_upload_date",
+        "score",
+        "condition_temp",
+        "condition_co2",
+        "condition_lux",
+        "condition_humid",
+        "condition_pm25",
+        "condition_voc",
+        "measure_temperature",
+        "measure_co2",
+        "measure_luminance",
+        "measure_humidity",
+        "measure_pm25",
+        "measure_voc"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/device/assets/images/small.png",
+        "large": "/drivers/device/assets/images/large.png",
+        "xlarge": "/drivers/device/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "device"
+    },
+    {
+      "name": {
+        "en": "Awair device using local data"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "latest_upload_date",
+        "score",
+        "measure_temperature",
+        "measure_co2",
+        "measure_luminance",
+        "measure_humidity",
+        "measure_pm25",
+        "measure_voc"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/localDevice/assets/images/small.png",
+        "large": "/drivers/localDevice/assets/images/large.png",
+        "xlarge": "/drivers/localDevice/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings"
+          },
+          "children": [
+            {
+              "id": "ipkey",
+              "type": "text",
+              "label": {
+                "en": "Awair device IP address"
+              },
+              "value": "",
+              "hint": {
+                "en": "Enter the IP address key of your Awair device"
+              }
+            }
+          ]
+        }
+      ],
+      "energy": {
+        "approximation": {
+          "usageConstant": 2
+        }
+      },
+      "id": "localDevice"
+    }
+  ],
+  "capabilities": {
+    "condition_co2": {
+      "type": "number",
+      "title": {
+        "en": "Current CO2 condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "condition_humid": {
+      "type": "number",
+      "title": {
+        "en": "Current humidity condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "condition_lux": {
+      "type": "number",
+      "title": {
+        "en": "Current LUX condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 100000,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "condition_pm25": {
+      "type": "number",
+      "title": {
+        "en": "Current PM2.5 condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "condition_temp": {
+      "type": "number",
+      "title": {
+        "en": "Current temperature condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "condition_voc": {
+      "type": "number",
+      "title": {
+        "en": "Current chemicals condition"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lvl"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "insights": true,
+      "uiComponent": "slider"
+    },
+    "latest_upload_date": {
+      "type": "string",
+      "title": {
+        "en": "Latest update date"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/images/clock.svg"
+    },
+    "measure_co2": {
+      "type": "number",
+      "title": {
+        "en": "Current CO2 value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "ppm"
+      },
+      "min": 0,
+      "max": 3000,
+      "decimals": 0,
+      "insights": true
+    },
+    "measure_humidity": {
+      "type": "number",
+      "title": {
+        "en": "Current humidity value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "min": 10,
+      "max": 90,
+      "decimals": 2,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_luminance": {
+      "type": "number",
+      "title": {
+        "en": "Current LUX value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "lux"
+      },
+      "min": 0,
+      "max": 100000,
+      "decimals": 0,
+      "insights": true
+    },
+    "measure_pm25": {
+      "type": "number",
+      "title": {
+        "en": "Current PM2.5 value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "ug/m"
+      },
+      "min": 0,
+      "max": 300,
+      "decimals": 0,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Current temperature value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -30,
+      "max": 50,
+      "decimals": 2,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_voc": {
+      "type": "number",
+      "title": {
+        "en": "Current chemicals value"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "ppb"
+      },
+      "min": 0,
+      "max": 9000,
+      "decimals": 0,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "score": {
+      "type": "number",
+      "title": {
+        "en": "Current score value"
+      },
+      "getable": true,
+      "setable": false,
+      "min": 0,
+      "max": 100,
+      "decimals": 0,
+      "insights": true,
+      "uiComponent": "sensor"
+    }
+  }
 }

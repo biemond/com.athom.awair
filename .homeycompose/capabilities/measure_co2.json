@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Current CO2 value"
+    },
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "ppm"
+    },
+    "min": 0,
+    "max": 3000,
+    "decimals": 0,
+    "insights": true
+}

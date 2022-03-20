@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Current CO2 condition"
+    },
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "lvl"
+    },
+    "min": 0,
+    "max": 5,
+    "step": 1,
+    "insights": true,
+    "uiComponent": "slider"
+}

@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Current temperature value"
+    },
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "C"
+    },
+    "min": -30,
+    "max": 50,
+    "decimals": 2,
+    "insights": true,
+    "uiComponent": "sensor"   
+}

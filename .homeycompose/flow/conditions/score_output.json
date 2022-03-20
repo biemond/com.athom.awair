@@ -1,0 +1,45 @@
+{
+"title": {
+    "en": "level of air quality:"
+},
+"hint": {
+    "en": "Level of air quality"
+},
+"args": [
+    {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=device|localDevice"
+    },
+    {
+        "name": "argument_main",
+        "type": "dropdown",
+        "values": [
+            {
+                "id": "good",
+                "label": {
+                    "en": "good, score above 80"
+                }
+            },
+            {
+                "id": "average",
+                "label": {
+                    "en": "average, score between 60 and 80"
+                }
+            },
+            {
+                "id": "bad",
+                "label": {
+                    "en": "bad, score between 40 and 60"
+                }
+            },
+            {
+                "id": "verybad",
+                "label": {
+                    "en": "very bad, score is below 40"
+                }
+            }
+        ]
+    }
+]
+}

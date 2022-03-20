@@ -1,0 +1,58 @@
+{
+  "name": {
+    "en": "Awair device using local data"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "latest_upload_date",
+    "score",
+    "measure_temperature",
+    "measure_co2",
+    "measure_luminance",
+    "measure_humidity",
+    "measure_pm25",
+    "measure_voc"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "pair"
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "General settings"
+      },
+      "children": [
+        {
+          "id": "ipkey",
+          "type": "text",
+          "label": {
+            "en": "Awair device IP address"
+          },
+          "value": "",
+          "hint": {
+            "en": "Enter the IP address key of your Awair device"
+          }
+        }
+      ]
+    }
+  ],
+  "energy": {
+    "approximation": {
+      "usageConstant": 2
+    }
+  }      
+}

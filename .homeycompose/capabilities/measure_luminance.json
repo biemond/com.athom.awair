@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Current LUX value"
+    },
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "lux"
+    },
+    "min": 0,
+    "max": 100000,
+    "decimals": 0,
+    "insights": true
+}

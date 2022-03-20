@@ -1,0 +1,29 @@
+{
+    "title": {
+        "en": "When score is in between 60 and 80"
+    },
+    "hint": {
+        "en": "Triggers when the score is in between 60 and 80"
+    },
+    "tokens": [{
+            "name": "score",
+            "type": "number",
+            "title": {
+                "en": "ActualScore"
+            },
+            "example": {
+                "en": "81"
+            }
+        },
+        {
+            "name": "device",
+            "type": "string",
+            "title": {
+                "en": "Device"
+            },
+            "example": {
+                "en": "My awair"
+            }
+        }
+    ]
+}

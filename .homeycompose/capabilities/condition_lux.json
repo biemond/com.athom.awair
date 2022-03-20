@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Current LUX condition"
+    },
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "lvl"
+    },
+    "min": 0,
+    "max": 100000,
+    "step": 1,
+    "insights": true,
+    "uiComponent": "slider"
+}
