@@ -1,8 +1,8 @@
 {
   "id": "com.athom.awair",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
-  "brandColor": "#df001c",  
+  "brandColor": "#20df30",  
   "sdk": 3,
   "platforms": [
     "local"
@@ -11,7 +11,7 @@
     "en": "Awair"
   },
   "description": {
-    "en": "Awair monitors your air"
+    "en": "Monitor your indoor air quality"
   },
   "category": [
     "climate"

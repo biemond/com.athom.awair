@@ -1,6 +1,6 @@
 {
-  "1.0.0": {
-    "en": "Using sdkv3, auto remove not existing caps, rename hum / temp caps"
+  "1.0.1": {
+    "en": "Using sdkv3, auto remove not existing device caps, rename hum/temp caps"
   },    
   "0.0.14": {
     "en": "Fix 0 values measurements"
