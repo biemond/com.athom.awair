@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.athom.awair",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "brandColor": "#20df30",
   "sdk": 3,
@@ -46,6 +46,156 @@
   "support": "mailto:biemond@gmail.com",
   "flow": {
     "triggers": [
+      {
+        "title": {
+          "en": "CO2 changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_co2",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_co2_changed"
+      },
+      {
+        "title": {
+          "en": "humidity changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_humidity",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_humidity_changed"
+      },
+      {
+        "title": {
+          "en": "luminance changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_luminance",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_luminance_changed"
+      },
+      {
+        "title": {
+          "en": "pm2.5 changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_pm25",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_pm25_changed"
+      },
+      {
+        "title": {
+          "en": "temperature changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_temperature_changed"
+      },
+      {
+        "title": {
+          "en": "VOC changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_voc",
+            "type": "number",
+            "title": {
+              "en": "value"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=device|localDevice"
+          }
+        ],
+        "id": "measure_voc_changed"
+      },
       {
         "title": {
           "en": "When score raised above 80"

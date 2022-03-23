@@ -157,6 +157,8 @@ class MyAwairDevice extends Homey.Device {
 
         this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11, 24));
         let score = data.data[0].score;
+        console.log(this.getName() + " score " + score + " old score " + this.getCapabilityValue('score'));
+        
         if (score > 0) {
           // if (score != this.getCapabilityValue('score')) {
           let tokens = {
@@ -164,14 +166,14 @@ class MyAwairDevice extends Homey.Device {
             "device": this.getName()
           };
           if (this.getCapabilityValue('score') < 80 && score >= 80) {
-            this.homey.flow.getDeviceTriggerCard('ScoreAbove80').trigger(this, tokens, {});
+            this.homey.flow.getTriggerCard('ScoreAbove80').trigger(tokens);
           } else if (this.getCapabilityValue('score') >= 80
             && score >= 60
             && score < 80) {
-            this.homey.flow.getDeviceTriggerCard('ScoreBetween60-80').trigger(this, tokens, {});
+            this.homey.flow.getTriggerCard('ScoreBetween60-80').trigger(tokens);
           } else if (this.getCapabilityValue('score') >= 60
             && score < 60) {
-            this.homey.flow.getDeviceTriggerCard('ScoreBelow60').trigger(this, tokens, {});
+            this.homey.flow.getTriggerCard('ScoreBelow60').trigger(tokens);
           }
           this.setCapabilityValue('score', score);
           // }

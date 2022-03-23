@@ -1,4 +1,7 @@
 {
+  "1.0.2": {
+    "en": "trigger bugfix plus rename hum/temp caps"
+  },    
   "1.0.1": {
     "en": "Using sdkv3, auto remove not existing device caps, rename hum/temp caps"
   },    
