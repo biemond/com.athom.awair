@@ -1,8 +1,8 @@
 {
   "id": "com.athom.awair",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=5.0.0",
-  "brandColor": "#20df30",  
+  "brandColor": "#20df30",
   "sdk": 3,
   "platforms": [
     "local"
@@ -26,21 +26,21 @@
     "name": "Edwin Biemond",
     "email": "biemond@gmail.com"
   },
-	"tags": {
-		"en": [
-			"awair",
-			"air",
-			"co2",
-			"pm25",
-			"monitoring",
-			"temperature",
-			"humidity",
-			"purifier"
-		]
-    },  
-    "bugs": {
-		"url": "https://github.com/biemond/com.athom.awair/issues"
-	},
-	"source": "https://github.com/biemond/com.athom.awair",
-	"support": "mailto:biemond@gmail.com"    
+  "tags": {
+    "en": [
+      "awair",
+      "air",
+      "co2",
+      "pm25",
+      "monitoring",
+      "temperature",
+      "humidity",
+      "purifier"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/biemond/com.athom.awair/issues"
+  },
+  "source": "https://github.com/biemond/com.athom.awair",
+  "support": "mailto:biemond@gmail.com"
 }

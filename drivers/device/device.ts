@@ -97,24 +97,36 @@ class MyAwairDevice extends Homey.Device {
           console.log("value: " + obj.value);
           if (obj.value >= 0) {
             if (obj.comp == "temp") {
-              this.setCapabilityValue('condition_temp', obj.value);
+              if (this.hasCapability('condition_temp'))  {
+                this.setCapabilityValue('condition_temp', obj.value);
+              }
             }
             if (obj.comp == "co2") {
               co2 = true;
-              this.setCapabilityValue('condition_co2', obj.value);
+              if (this.hasCapability('condition_co2'))  {
+                this.setCapabilityValue('condition_co2', obj.value);
+              }  
             }
             if (obj.comp == "humid") {
-              this.setCapabilityValue('condition_humid', obj.value);
+              if (this.hasCapability('condition_humid'))  {
+                this.setCapabilityValue('condition_humid', obj.value);
+              }  
             }
             if (obj.comp == "pm25") {
-              this.setCapabilityValue('condition_pm25', obj.value);
+              if (this.hasCapability('condition_pm25'))  {
+                this.setCapabilityValue('condition_pm25', obj.value);
+              }  
             }
             if (obj.comp == "vox") {
-              this.setCapabilityValue('condition_vox', obj.value);
+              if (this.hasCapability('condition_vox'))  {
+                this.setCapabilityValue('condition_vox', obj.value);
+              }  
             }
             if (obj.comp == "lux") {
               lux = true;
-              this.setCapabilityValue('condition_lux', obj.value);
+              if (this.hasCapability('condition_lux'))  {
+                this.setCapabilityValue('condition_lux', obj.value);
+              }
             }
           }
         }
@@ -124,24 +136,36 @@ class MyAwairDevice extends Homey.Device {
           console.log("comp: " + obj.comp);
           console.log("value: " + obj.value);
           if (obj.comp == "temp") {
-            this.setCapabilityValue('measure_temperature', obj.value);
+            if (this.hasCapability('measure_temperature'))  {
+              this.setCapabilityValue('measure_temperature', obj.value);
+            }
           }
           if (obj.comp == "co2") {
             co2 = true;
-            this.setCapabilityValue('measure_co2', obj.value);
+            if (this.hasCapability('measure_co2'))  {
+              this.setCapabilityValue('measure_co2', obj.value);
+            }
           }
           if (obj.comp == "humid") {
-            this.setCapabilityValue('measure_humidity', obj.value);
+            if (this.hasCapability('measure_humidity'))  {
+              this.setCapabilityValue('measure_humidity', obj.value);
+            }
           }
           if (obj.comp == "pm25") {
-            this.setCapabilityValue('measure_pm25', obj.value);
+            if (this.hasCapability('measure_pm25'))  {
+              this.setCapabilityValue('measure_pm25', obj.value);
+            }  
           }
           if (obj.comp == "voc") {
-            this.setCapabilityValue('measure_voc', obj.value);
+            if (this.hasCapability('measure_voc'))  {
+              this.setCapabilityValue('measure_voc', obj.value);
+            }
           }
           if (obj.comp == "lux") {
             lux = true;
-            this.setCapabilityValue('measure_luminance', obj.value);
+            if (this.hasCapability('measure_luminance'))  {
+              this.setCapabilityValue('measure_luminance', obj.value);
+            }  
           }
         }
         if (co2 == false) {

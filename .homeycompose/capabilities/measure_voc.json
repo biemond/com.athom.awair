@@ -9,7 +9,7 @@
         "en": "ppb"
     },
     "min": 0,
-    "max": 9000,
+    "max": 40000,
     "decimals": 0,
     "insights": true,
     "uiComponent": "sensor"

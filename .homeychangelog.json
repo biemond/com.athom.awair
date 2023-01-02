@@ -1,4 +1,7 @@
 {
+  "1.0.3": {
+    "en": "stacktrace fixes"
+  },    
   "1.0.2": {
     "en": "trigger bugfix plus rename hum/temp caps"
   },    
