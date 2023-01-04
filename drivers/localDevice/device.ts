@@ -93,26 +93,38 @@ class MyLocalAwairDriver extends Homey.Device {
         let strUpdateDate = result.timestamp;
         console.log("last date " + strUpdateDate.substring(11, 24));
         if (result.hasOwnProperty('temp')) {
-          this.setCapabilityValue('measure_temperature', result.temp);
+          if (this.hasCapability('measure_temperature'))  {
+            this.setCapabilityValue('measure_temperature', result.temp);
+          }
         }
         if (result.hasOwnProperty('co2')) {
           if (result.co2 > 0) {
             co2 = true;
-            this.setCapabilityValue('measure_co2', result.co2);
+            if (this.hasCapability('measure_co2'))  {
+              this.setCapabilityValue('measure_co2', result.co2);
+            }
           }
         }
         if (result.hasOwnProperty('humid')) {
-          this.setCapabilityValue('measure_humidity', result.humid);
+          if (this.hasCapability('measure_humidity'))  {
+            this.setCapabilityValue('measure_humidity', result.humid);
+          }
         }
         if (result.hasOwnProperty('pm25')) {
-          this.setCapabilityValue('measure_pm25', result.pm25);
+          if (this.hasCapability('measure_pm25'))  {
+            this.setCapabilityValue('measure_pm25', result.pm25);
+          }
         }
         if (result.hasOwnProperty('voc')) {
-          this.setCapabilityValue('measure_voc', result.voc);
+          if (this.hasCapability('measure_voc'))  {
+            this.setCapabilityValue('measure_voc', result.voc);
+          }
         }
         if (result.hasOwnProperty('lux')) {
           lux = true;
-          this.setCapabilityValue('measure_luminance', result.lux);
+          if (this.hasCapability('measure_luminance'))  {
+            this.setCapabilityValue('measure_luminance', result.lux);
+          }
         }
         this.setCapabilityValue('latest_upload_date', strUpdateDate.substring(11, 24));
         if (co2 == false) {
